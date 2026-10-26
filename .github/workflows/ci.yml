@@ -1,0 +1,20 @@
+name: Run Tests                      # WORKFLOW: the name of the whole automated process
+on:                                  # EVENT: what makes the workflow run
+  push:                              # EVENT: run when code is pushed
+    branches: [main]                 # EVENT: only for pushes to the main branch
+  pull_request:                      # EVENT: also run when a pull request is opened or updated
+    branches: [main]                 # EVENT: only for pull requests into main
+jobs:                                # JOB: the list of jobs in this workflow
+  test:                              # JOB: a job named "test"
+    runs-on: ubuntu-latest           # RUNNER: GitHub's cloud Linux machine that runs this job
+    steps:                           # STEP: the list of steps in this job
+      - name: Check out the code     # STEP: download the repo onto the runner
+        uses: actions/checkout@v4    # ACTION: prebuilt action that checks out the code
+      - name: Set up Node.js         # STEP: install Node on the runner
+        uses: actions/setup-node@v4  # ACTION: prebuilt action that installs Node
+        with:                        # ACTION: settings passed to the action
+          node-version: 20           # ACTION: which Node version to install
+      - name: Install dependencies   # STEP: install the project's packages
+        run: npm install             # STEP: shell command run on the runner
+      - name: Run the tests          # STEP: run the unit tests
+        run: npm test                # STEP: shell command; a failing test turns the run red

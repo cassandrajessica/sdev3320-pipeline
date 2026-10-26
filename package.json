@@ -1,0 +1,13 @@
+{
+  "name": "pipeline-starter",
+  "version": "1.0.0",
+  "description": "Small JavaScript app with unit tests for the SDEV 3320 Week 9 pipeline activity",
+  "main": "src/tipCalculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
