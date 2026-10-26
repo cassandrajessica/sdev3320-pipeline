@@ -1,7 +1,7 @@
 const { calculateTip, splitBill } = require('./tipCalculator');
 
 test('calculates a 20% tip on a $50 bill', () => {
-  expect(calculateTip(50, 20)).toBe(11);
+  expect(calculateTip(50, 20)).toBe(10);
 });
 
 test('rounds the tip to cents', () => {
